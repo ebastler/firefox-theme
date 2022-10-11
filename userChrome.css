@@ -10,6 +10,10 @@
 #TabsToolbar {
     margin-left: 30vw !important;
 }
+/* Remove black border around tab bar */
+#navigator-toolbox {
+    border: 0px !important;
+}
 
 /* URL bar, right margin is space reserved for tabs. top margin pulls it up into tab bar */
 #nav-bar {
