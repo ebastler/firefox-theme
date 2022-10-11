@@ -1,0 +1,183 @@
+/* One-line-design */
+/* Code based on https://github.com/khuedoan/one-line-firefox */
+
+/* Remove spacer to the right of title bar */
+.titlebar-spacer {
+    display: none !important;
+}
+
+/* Empty space to the left of tab bar, needed for URL bar */
+#TabsToolbar {
+    margin-left: 30vw !important;
+}
+
+/* URL bar, right margin is space reserved for tabs. top margin pulls it up into tab bar */
+#nav-bar {
+    background: transparent !important;
+    margin-top: -36px !important;
+    margin-right: 70vw !important;
+}
+
+/* Hide unnecessary UI elements */
+#back-button {
+    display: none !important;
+}
+
+#forward-button {
+    display: none !important;
+}
+
+#tracking-protection-icon-container {
+    display: none !important;
+}
+
+#urlbar-container {
+    min-width: 100px !important;
+}
+
+#urlbar {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#page-action-buttons {
+    display: none !important;
+}
+
+/* Windows 11 Explorer inspired colortheme */
+/* Currently dark mode only, light mode may or may not follow */
+/* Code based on https://github.com/CristianDragos/FirefoxThemes/tree/master/Simplify%20Sunset */
+
+@media (prefers-color-scheme: dark) {
+
+    /* Background color of inactive minimize/maximize/close window buttons */
+    #titlebar #TabsToolbar {
+        background: #202020 !important;
+    }
+
+    /* Background color of hovered minimize/maximize window buttons */
+    .titlebar-button:hover {
+        background: #2d2d2d !important;
+    }
+
+    /* Background color of hovered close window button */
+    .titlebar-button.titlebar-close:hover {
+        background: #c42b1c !important;
+    }
+    
+    /* background color of nav bar */
+    #nav-bar {
+        background: #202020 !important;
+    }
+    
+    /* Background color of URL bar */
+    #urlbar-background {
+        background: #333333 !important;
+    }
+
+    /* Background color of URL bar drop-down */
+    .urlbarView {
+        background: #333333 !important;
+    }
+    
+    /* URL text color of elements in URL bar drop-down */
+    .urlbarView-url {
+        color: #0078d4 !important;
+    }
+
+
+    /* Highlight background color of currently hovered element in UI bar drop-down */
+    .urlbarView-row[dynamicType="onboardTabToSearch"]:hover > .urlbarView-row-inner, 
+    .urlbarView-row:not([type="tip"], [type="dynamic"], [has-help]):hover > .urlbarView-row-inner, .urlbarView-row[has-help] > .urlbarView-row-inner:not([selected]):hover,
+    .searchbar-engine-one-off-item:not([selected]):hover, .addengine-item:hover {
+        background: #444444 !important;
+    }
+
+    /* Background color of currently active tab */
+    .tab-background[multiselected="true"], .tab-background[selected="true"] {
+        background: #333333 !important;
+        box-shadow: none !important;
+    }
+
+    /* Background color of currently hovered tab */
+    .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]) {
+        background-color: #444444 !important;
+    }
+    
+    /* Text color of currently active tab */
+    .tabbrowser-tab[selected="true"] .tab-label {
+        color: #f2f2f2 !important;
+    }
+
+    /* Text color of inactive tab */
+    .tabbrowser-tab:not([visuallyselected="true"]) {
+        color: #aaaaaa !important;
+    }
+    
+    /* Text/icon color of various UI elements */
+    #tabs-newtab-button,
+    #alltabs-button,
+    #new-tab-button,
+    #scrollbutton-up,
+    #scrollbutton-down {
+        fill: #f2f2f2 !important;
+    }
+    
+    /* Icons to the left of toolbar (search symbol, encryption indicator etc */
+    toolbar#nav-bar.browser-toolbar #urlbar-container .urlbar-icon-wrapper,
+    toolbar#nav-bar.browser-toolbar #urlbar-container .urlbar-icon,
+    toolbar#nav-bar.browser-toolbar #urlbar-container .identity-box-button image#identity-icon,
+    toolbar#nav-bar.browser-toolbar #urlbar-container #tracking-protection-icon-box #tracking-protection-icon {
+        transition: all 0.3s ease !important;
+        border-radius: 3px !important;
+        fill: #c42b1c !important;
+    }
+    toolbar#nav-bar.browser-toolbar #urlbar-container .identity-box-button,
+    toolbar#nav-bar.browser-toolbar #urlbar-container #tracking-protection-icon-container {
+        transition: all 0.3s ease !important;
+    }
+    :not(.urlbar-icon-wrapper) > .urlbar-icon:not([disabled]):hover,
+    .urlbar-icon-wrapper:not([disabled]):hover,
+    .identity-box-button:hover:not([open="true"]),
+    #tabs-newtab-button:hover:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-icon,
+    #tracking-protection-icon-container:hover:not([open="true"]) {
+        background-color: #444444 !important;
+    }
+    
+    #PersonalToolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active), .tabbrowser-arrowscrollbox:not([scrolledtostart="true"])::part(scrollbutton-up), .tabbrowser-arrowscrollbox:not([scrolledtoend="true"])::part(scrollbutton-down), .findbar-button:not(:-moz-any([checked="true"], [disabled="true"])), toolbarbutton.bookmark-item:not(.subviewbutton):not([disabled="true"]):not([open]), toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-icon, toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-text, toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active) > .toolbarbutton-badge-stack {
+        border-radius: 3px !important;
+        fill: #f2f2f2 !important;
+    }
+    #PersonalToolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover, .tabbrowser-arrowscrollbox:not([scrolledtostart="true"])::part(scrollbutton-up):hover, .tabbrowser-arrowscrollbox:not([scrolledtoend="true"])::part(scrollbutton-down):hover, .findbar-button:not(:-moz-any([checked="true"], [disabled="true"])):hover, toolbarbutton.bookmark-item:not(.subviewbutton):hover:not([disabled="true"]):not([open]), toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-icon, toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-text, toolbar .toolbarbutton-1:not([disabled="true"]):not([checked]):not([open]):not(:active):hover > .toolbarbutton-badge-stack {
+        background-color: #444444 !important;
+    }
+    
+    .tab-close-button.close-icon {
+        color: #aaaaaa !important;
+        padding: 2px !important;
+        width: 15px !important;
+        height: 15px !important;
+    }
+    .tab-close-button.close-icon:hover {
+        background-color: #c42b1c !important;
+        color: #f2f2f2 !important;
+    }
+    
+    #PersonalToolbar {
+        background-color: #333333 !important;
+    }
+    
+    panelview {
+        background: #444444 !important;
+    }
+    panelview .toolbarbutton-1:not([disabled], [open], :active):is(:hover), toolbarbutton.subviewbutton:not([disabled], [open], :active):is(:hover), .navigable.subviewbutton:not([disabled], [open], :active):is(:hover), menu.subviewbutton:not([disabled], :active)[_moz-menuactive], menuitem.subviewbutton:not([disabled], :active)[_moz-menuactive], .widget-overflow-list .toolbarbutton-1:not([disabled], [open], :active):is(:hover), .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton:not([disabled], [open], :active):is(:hover),
+    .all-tabs-item:hover {
+        background: #555555 !important;
+    }
+    .all-tabs-item:hover > toolbarbutton.subviewbutton:not([disabled], [open], :active):is(:hover).all-tabs-button,
+    .all-tabs-item:hover > toolbarbutton.subviewbutton:not([disabled], [open], :active):is(:hover).all-tabs-secondary-button {
+        background-color: transparent !important;
+    }
+
+    
+}
